@@ -14,4 +14,6 @@
     <string name="activity_stream">Activity Stream</string>
     <string name="chat">Chat</string>
     <string name="tutors">Tutors</string>
+    <string name="title_activity_profile_users">Profile_users</string>
+    <string name="title_activity_tutors">Tutors</string>
 </resources>
