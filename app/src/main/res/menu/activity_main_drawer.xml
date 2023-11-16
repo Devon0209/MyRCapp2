@@ -10,19 +10,19 @@
 
 
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/profile"
             android:icon="@drawable/user__1_"
             android:title="@string/Profile" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/activity_stream"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/activity_stream" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/chat"
             android:icon="@drawable/message"
             android:title="@string/chat" />
         <item
-            android:id="@+id/teacher"
+            android:id="@+id/tutors"
             android:icon="@drawable/teacher"
             android:title="@string/tutors" />
     </group>
