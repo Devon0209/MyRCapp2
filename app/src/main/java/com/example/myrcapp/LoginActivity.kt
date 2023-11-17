@@ -6,6 +6,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myrcapp.Chat.Adapters.UserListActivity
+import com.example.myrcapp.Chat.ChatListActivity
+import com.example.myrcapp.Models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -50,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         newaccount.setOnClickListener {
-            val Intent = Intent(this@LoginActivity, RegistrationActivity::class.java)
+            val intent = Intent(this, UserListActivity::class.java)
             startActivity(intent)
         }
     }
@@ -68,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
                             // User data retrieved, customize the user experience as needed
                         }
                     }
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, ChatListActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {

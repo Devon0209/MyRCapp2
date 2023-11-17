@@ -1,4 +1,4 @@
-package com.example.myrcapp
+package com.example.myrcapp.Models
 
 
 data class User(

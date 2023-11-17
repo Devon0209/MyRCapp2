@@ -1,15 +1,12 @@
 package com.example.myrcapp
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
-
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-
+import com.example.myrcapp.Models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -22,7 +19,6 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var signUpButton: Button
     private lateinit var firestore: FirebaseFirestore
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
@@ -30,14 +26,14 @@ class RegistrationActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
         firstNameEditText = findViewById(R.id.firstname)
-        lastNameEditText = findViewById(R.id.lastname)
+        lastNameEditText = findViewById(R.id.surname) // Corrected ID
         emailEditText = findViewById(R.id.email)
         passwordEditText = findViewById(R.id.password)
         signUpButton = findViewById(R.id.register_btn)
 
         signUpButton.setOnClickListener {
             val firstName = firstNameEditText.text.toString()
-            val lastName = lastNameEditText.text.toString()
+            val lastName = lastNameEditText.text.toString() // Corrected variable name
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
 
@@ -50,7 +46,7 @@ class RegistrationActivity : AppCompatActivity() {
                         // Save user data to Firestore
                         saveUserDataToFirestore(uid, firstName, lastName, email, password)
 
-                        val intent = Intent(this@RegistrationActivity, MainActivity::class.java)
+                        val intent = Intent(this@RegistrationActivity, LoginActivity::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(
@@ -63,7 +59,7 @@ class RegistrationActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveUserDataToFirestore(uid: String, firstName: String, lastName: String, email: String, password:String) {
+    private fun saveUserDataToFirestore(uid: String, firstName: String, lastName: String, email: String, password: String) {
         val user = User(firstName, lastName, email, password)
 
         firestore.collection("users")
@@ -78,4 +74,3 @@ class RegistrationActivity : AppCompatActivity() {
             }
     }
 }
-
